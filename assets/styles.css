@@ -275,6 +275,17 @@ html[lang="zh-CN"] .entry-role { letter-spacing: .3px; }
 .figure-scroll img { width: auto; height: auto; max-width: 100%; max-height: 70vh; max-height: 70svh; margin: auto; object-fit: contain; }
 html[lang="zh-CN"] .figure-toolbar h2 { font: 600 17px/1.5 var(--sans); }
 
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .55s ease, transform .55s ease, background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+.scroll-reveal.is-visible { opacity: 1; transform: none; }
+.scroll-reveal:focus-within { opacity: 1; transform: none; transition: none; }
+@media print {
+  .scroll-reveal { opacity: 1; transform: none; transition: none; }
+}
+
 @media (min-width: 1400px) {
   .hero { padding-top: 88px; }
 }
@@ -353,5 +364,6 @@ html[lang="zh-CN"] .figure-toolbar h2 { font: 600 17px/1.5 var(--sans); }
 }
 @media (prefers-reduced-motion: reduce) {
   :root { scroll-behavior: auto; }
+  .scroll-reveal { opacity: 1; transform: none; }
   *, *::before, *::after { transition: none !important; }
 }
